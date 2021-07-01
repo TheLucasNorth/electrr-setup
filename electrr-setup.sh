@@ -29,8 +29,9 @@ cd electrr
 composer update
 cp .env.example .env
 php artisan key:generate
-sudo chown -R www-data.www-data /var/www/electrr/storage
-sudo chown -R www-data.www-data /var/www/electrr/bootstrap/cache
+sudo usermod -aG www-data $USER
+sudo chown -R www-data:www-data /var/www/electrr/storage
+sudo chown -R www-data:www-data /var/www/electrr/bootstrap/cache
 echo "electrr installed, configuring Nginx…"
 sed -i -e "s/example.com/$1/g" .nginx.example
 sudo cp .nginx.example /etc/nginx/sites-available/electrr
