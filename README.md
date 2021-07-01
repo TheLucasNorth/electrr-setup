@@ -24,3 +24,5 @@ As the non-root user you created, run the following:
 It is essential that you replace YOUR_ELECTRR_DOMAIN with the domain you intend to use for electrr. It should be the fully qualified domain name only, e.g. electrr.example.com
 
 This value is used to configure your NGINX sites.
+
+This script is destructive - it will remove any existing /var/www/html directory, and unlink the default Nginx site. It is not intended to be used where you have already configured Nginx or other services.
