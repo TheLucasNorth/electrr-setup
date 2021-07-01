@@ -9,15 +9,17 @@ Pre-requisites
 
 This script is intended to be run on an otherwise clean (new) VPS running Ubuntu 20.04.
 You should have created a non-root user with sudo privileges, e.g.:
-  adduser electrr
-  usermod -aG sudo electrr
+ > adduser electrr
+ > 
+ > usermod -aG sudo electrr
   
 Installation
 
 As the non-root user you created, run the following:
 
-  curl https://raw.githubusercontent.com/TheLucasNorth/electrr-setup/main/electrr-setup.sh -o electrr-setup.sh
-  sh electrr-setup.sh YOUR_ELECTRR_DOMAIN
+ > curl https://raw.githubusercontent.com/TheLucasNorth/electrr-setup/main/electrr-setup.sh -o electrr-setup.sh
+ > 
+ > sh electrr-setup.sh YOUR_ELECTRR_DOMAIN
  
 It is essential that you replace YOUR_ELECTRR_DOMAIN with the domain you intend to use for electrr. It should be the fully qualified domain name only, e.g. electrr.example.com
 
