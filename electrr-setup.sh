@@ -24,15 +24,21 @@ echo "Installing electrr…"
 sudo chown -R $USER: /var/www
 cd /var/www
 git clone https://github.com/TheLucasNorth/electrr.git
+echo "Downloaded, installing...
 sudo rm -rf html
 cd electrr
-composer update
+echo "Installing composer dependencies..."
+composer update -q
+echo "electrr installed, configuring..."
 cp .env.example .env
 php artisan key:generate
 sudo usermod -aG www-data $USER
 sudo chown -R www-data:www-data /var/www/electrr/storage
 sudo chown -R www-data:www-data /var/www/electrr/bootstrap/cache
-echo "electrr installed, configuring Nginx…"
+sudo chmod -R 775 /var/www/electrr/storage
+sudo chmod -R 775 /var/www/electrr/bootstrap/cache
+echo "electrr installed"
+echo "configuring Nginx…"
 sed -i -e "s/example.com/$1/g" .nginx.example
 sudo cp .nginx.example /etc/nginx/sites-available/electrr
 sudo ln -s /etc/nginx/sites-available/electrr /etc/nginx/sites-enabled/
@@ -48,3 +54,4 @@ sudo certbot --nginx
 echo "Configured SSL"
 echo "Installation complete, please create and configure your database, database user, and any further environment settings as needed"
 echo "Enjoy using electrr!"
+rm ~/electrr-setup.sh
